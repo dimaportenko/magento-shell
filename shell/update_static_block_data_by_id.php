@@ -22,15 +22,14 @@ class Mage_Shell_UpdateStaticBlockDataById extends Mage_Shell_Abstract
     {
         $id = 1;
         $block_by_id = Mage::getModel('cms/block')->load($id);//->delete();
-        $data = $block_by_id->getData();
-        $data["content"] = '<ul>
+        $content = '<ul>
 <li><span style="font-size: medium; font-family: tahoma, arial, helvetica, sans-serif;"><a href="{{store direct_url="over-ons"}}">Over Ons</a></span></li>
 <li><span style="font-size: medium; font-family: tahoma, arial, helvetica, sans-serif;"><a href="{{store direct_url="algemene-voorwaarden"}}">Algemene Voorwaarden</a></span></li>
 <li><span style="font-size: medium; font-family: tahoma, arial, helvetica, sans-serif;"><a href="{{store direct_url="privacy"}}">Privacy Policy</a></span></li>
 <li><span style="font-size: medium; font-family: tahoma, arial, helvetica, sans-serif;"><a href="{{store direct_url="verzenden-retourneren"}}">Verzenden &amp; Retourneren</a></span></li>
 <li class="last privacy"><span style="font-size: medium; font-family: tahoma, arial, helvetica, sans-serif;"><a href="{{store direct_url="klantenservice"}}">Klantenservice</a></span></li>
 </ul>';
-        $block_by_id->setData($data);
+        $block_by_id->setData('content', $content);
         
         $block_by_id->save();
     }
